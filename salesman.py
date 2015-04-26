@@ -1,20 +1,24 @@
-__author__ = "Rohan Pandit"
+__author__ = "Rohan Pandit" 
 
-from sorty import algorithm
+from swap2 import algorithm
 import numpy as np
 from numpy import hypot
+from time import time
 
 def main():
 	#loading data
 	f = open("tsp0038.txt", 'r').read().splitlines()
 	numCities = f.pop(0)
 	cities = np.array([ tuple( map( float, coord.split() ) ) for coord in f ])
+	
 	#calculating path
+	start = time()
 	path = algorithm( cities )
 	print(path)
 
 	length = calcLength( cities, path )
-	print( "Found path of length %s" % round(length,2) )
+	tottime = time() - start
+	print( "Found path of length %s in %s seconds" % ( round(length,2), round(tottime, 2) ) )
 
 	#displaying path
 	drawPath( path, cities )
@@ -37,8 +41,6 @@ def drawPath(path, cities):
 
 def plot(city): # Plots 5x5 "points" on video screen
     x = city[0]+5; y = city[1]+5 # The +5 is to push away from the side bars.
-    #if city[0] == -1:
-    #    kolor = 'WHITE'
     kolor = 'YELLOW'
     canvas.create_rectangle(x-2, y-2, x+2, y+2, width = 1, fill = kolor)
 
@@ -139,7 +141,7 @@ def setUpCanvas(root): # These are the REQUIRED magic lines to enter graphics mo
 	canvas.pack(expand = YES, fill = BOTH)
 	return canvas
 
-from tkinter   import Tk, Canvas, YES, BOTH
+from Tkinter   import Tk, Canvas, YES, BOTH
 from operator  import itemgetter
 from itertools import permutations
 from copy import deepcopy
