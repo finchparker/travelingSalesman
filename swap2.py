@@ -14,7 +14,7 @@ def algorithm(cities):
 	for i in range(N_ITER):
 		order =  range( cities.shape[0] )
 		shuffle(order)
-		length = calcLength(cities, order)
+		length = calc_length(cities, order)
 		start = time()
 
 		changed = True
