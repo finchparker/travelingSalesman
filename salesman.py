@@ -1,16 +1,16 @@
 __author__ = "Rohan Pandit" 
 
-from swap3 import algorithm
+from brute import algorithm
 import numpy as np
 from time import time
 from Tkinter   import Tk, Canvas
 from random import randint
 
-size = 700
+screenSize = 700
 
 def main():
 	#loading data
-	f = open("tsp0734.txt", 'r').read().splitlines()
+	f = open("tsp0100.txt", 'r').read().splitlines()
 	numCities = f.pop(0)
 	cities = np.array([ tuple( map( float, coord.split() ) ) for coord in f ])
 	
@@ -33,8 +33,8 @@ def randColor():
 def drawPath(path, cities, length):
 	cities = cities[ path ]
 
-	msg = "Length = " + str( round(length, 2) )
-	canvas.create_text(size/2, size+50, text = msg, fill = 'black',  font = ('Helvetica', 20, 'bold'))
+	msg = "Length*: {:.2E}".format(length)
+	canvas.create_text(screenSize/2, screenSize+50, text = msg, fill = 'black',  font = ('Helvetica', 20, 'bold'))
 	
 	addToCanvas(cities)
 	canvas.update()
@@ -51,11 +51,11 @@ def addToCanvas(cities):
 		c = cities[i-1]
 		c_next = cities[i]
 
-		scaled_x = (c[0] - min_x) / (max_x - min_x) * size + 20
-		scaled_y = (c[1] - min_y) / (max_y - min_y) * size + 20
+		scaled_x = (c[0] - min_x) / (max_x - min_x) * screenSize + 20
+		scaled_y = (c[1] - min_y) / (max_y - min_y) * screenSize + 20
 
-		scaled_x_next = (c_next[0] - min_x) / (max_x - min_x) * size + 20
-		scaled_y_next = (c_next[1] - min_y) / (max_y - min_y) * size + 20
+		scaled_x_next = (c_next[0] - min_x) / (max_x - min_x) * screenSize + 20
+		scaled_y_next = (c_next[1] - min_y) / (max_y - min_y) * screenSize + 20
 
 		canvas.create_oval( scaled_x - 4 , scaled_y - 4 , scaled_x + 4  , scaled_y + 4 , fill = randColor() , outline = 'black' )
 		canvas.create_oval( scaled_x_next - 4 , scaled_y_next - 4 , scaled_x_next + 4  , scaled_y_next + 4 , fill = randColor() , outline = 'black' )
@@ -64,7 +64,7 @@ def addToCanvas(cities):
 
 
 root = Tk()
-canvas = Canvas( root , width = size + 40, height = size + 100 , bg = 'white' )
+canvas = Canvas( root , width = screenSize + 40, height = screenSize + 100 , bg = 'white' )
 canvas.pack()
 
 if __name__ == "__main__":

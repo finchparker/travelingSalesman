@@ -39,7 +39,7 @@ def algorithm(cities):
 def calc_length(cities, path):
 	length = 0
 	for i in range( len(path) ):
-		length += dist( cities[ path[i-1] ], cities[ path[i] ] )
+		length += dist_squared( cities[ path[i-1] ], cities[ path[i] ] )
 
 	return length
 
