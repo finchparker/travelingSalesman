@@ -21,6 +21,7 @@ Searches every permutation of cycles and returns the shortest one. Simple algori
 While this algorithm is relatively fast O(N^3), it does not come up with very good solutions.
 
 ![Greedy Path](greedy.png)
+
 *The length shown is not the sum of the distances from each city to the next, but rather the sum of the *square* of the distances form each city to the next. This applies for all algorithms shown.
 
 ## 2-opt swap
