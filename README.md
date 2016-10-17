@@ -59,7 +59,7 @@ A "Numpy aware" JIT compiler.
 
 ## Inline C
 
-I tried to use Weave for inline C code for the distance_squared function, since I spent a lot of time it in, but for some reason this ended up being slower than Numba.
+I tried to use Weave for inline C code for the `distance_squared` function, since I spent a lot of time it in, but for some reason this ended up being slower than Numba.
 
 ## Cython
 
@@ -67,7 +67,7 @@ I ended up not getting to this, but it would likely have been similar to Numba-l
 
 # Outcome
 
-I lost the competition :(. I learned that a good algorithm >> low-level optimizations. If I could go back I would try to create an algorithm that tried to find a convex route (or as close to possible), since that is what I noticed us humans subconciously try to do when coming up with solutions to TSP, which we are actually quite good at. On the bright side, because I spent so much time struggling to install Numba properly, I finally started to use a real package manager (conda; it's reallyyy nice would reccomend).
+I lost the competition :(. I learned that a good algorithm >>>> low-level optimizations. If I could go back I would try to create an algorithm that tried to find a convex route (or as close to possible), since that is what I noticed us humans intuitively try to do when coming up with solutions to TSP, which we are actually quite good at. On the bright side, because I spent so much time struggling to install Numba properly, I finally started to use a real package manager (Conda: it's reallyyy nice would reccomend).
 
 # Run Intructions
 
