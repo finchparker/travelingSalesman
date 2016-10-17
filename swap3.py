@@ -26,7 +26,7 @@ def algorithm(cities):
 				a, b, c = choice( list( permutations( (a, b, c) ) ) )
 
 				new_order = order[:a] + order[a:b][::-1] + order[b:c][::-1] + order[c:]
-				new_length = calcLength(cities, new_order)
+				new_length = calc_length(cities, new_order)
 
 				if new_length < length:
 					length = new_length
@@ -36,7 +36,7 @@ def algorithm(cities):
 	return order, length
 
 @jit
-def calcLength(cities, path):
+def calc_length(cities, path):
 	length = 0
 	for i in range( len(path) ):
 		length += dist( cities[ path[i-1] ], cities[ path[i] ] )
@@ -44,5 +44,8 @@ def calcLength(cities, path):
 	return length
 
 @jit
-def dist(c1, c2):
-	return np.hypot(c2[0] - c1[0], c2[1] - c1[1])
+def dist_squared(c1, c2):
+	t1 = c2[0] - c1[0]
+	t2 = c2[1] - c1[1]
+
+	return t1**2 + t2**2
