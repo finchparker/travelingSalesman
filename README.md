@@ -20,7 +20,7 @@ Searches every permutation of cycles and returns the shortest one. Simple algori
 
 While this algorithm is relatively fast O(N^3), it does not come up with very good solutions.
 
-![Greedy Path](greedy.png)
+![Greedy Path](greedyAlg.png)
 
 \*The length shown is not the sum of the distances from each city to the next, but rather the sum of the *square* of the distances form each city to the next. This applies for all algorithms shown.
 
@@ -34,6 +34,7 @@ While this algorithm is relatively fast O(N^3), it does not come up with very go
 This algorithm is both faster, O(M*N^2) and produces better solutions. The intuition behind the algorithm is that swapping two edges at a time untangles routes that cross over itself.
 
 ![2-opt Path](2opt.png)
+
 The 2-opt swap performed much better than greedy; the path it drew looks similar to something a human might draw.
 
 
