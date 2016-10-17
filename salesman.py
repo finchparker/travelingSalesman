@@ -10,7 +10,7 @@ screenSize = 700
 
 def main():
 	#loading data
-	f = open("tsp0100.txt", 'r').read().splitlines()
+	f = open("datasets/tsp0100.txt", 'r').read().splitlines()
 	numCities = f.pop(0)
 	cities = np.array([ tuple( map( float, coord.split() ) ) for coord in f ])
 	
