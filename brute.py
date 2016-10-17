@@ -2,7 +2,7 @@ from itertools import permutations
 from math import hypot
 
 def algorithm(cities):
-	min_length = calcLength( cities, range( len( cities ) ) )
+	min_length = calc_length( cities, range( len( cities ) ) )
 	min_path = range( len( cities ) )
 
 	for path in permutations( range( len( cities ) ) ):
